@@ -9,9 +9,9 @@ const fs = require('fs');
 
 const app = express();
 
-// Middleware
+
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite dev server
+  origin: 'http://localhost:5173', 
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -21,15 +21,14 @@ app.use(session({
     secret: 'rewear-secret-key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } 
 }));
 
-// Ensure uploads directory exists
 if (!fs.existsSync('uploads')) {
     fs.mkdirSync('uploads');
 }
 
-// MongoDB connection
+
 mongoose.connect('mongodb://127.0.0.1:27017/Rewear', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -106,7 +105,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ 
     storage: storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: function (req, file, cb) {
         if (file.mimetype.startsWith('image/')) {
             cb(null, true);
@@ -116,7 +115,6 @@ const upload = multer({
     }
 });
 
-// Authentication middleware
 const requireAuth = (req, res, next) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'Authentication required' });
@@ -131,9 +129,7 @@ const requireAdmin = (req, res, next) => {
     next();
 };
 
-// Routes
 
-// Auth routes
 app.post('/api/signup', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -212,7 +208,6 @@ app.get('/api/me', requireAuth, async (req, res) => {
     }
 });
 
-// Item routes
 app.get('/api/items', async (req, res) => {
     try {
         const { status, category, condition, userEmail } = req.query;
@@ -316,7 +311,7 @@ app.delete('/api/admin/items/:id/reject', requireAdmin, async (req, res) => {
     }
 });
 
-// Swap routes
+
 app.get('/api/swaps', requireAuth, async (req, res) => {
     try {
         const swaps = await Swap.find({
@@ -345,7 +340,7 @@ app.post('/api/items/:id/request-swap', requireAuth, async (req, res) => {
             return res.status(400).json({ error: 'Cannot swap your own item' });
         }
         
-        // Check if swap request already exists
+      
         const existingSwap = await Swap.findOne({
             itemId: item._id,
             requesterEmail: req.session.user.email,
@@ -392,11 +387,10 @@ app.post('/api/items/:id/redeem-points', requireAuth, async (req, res) => {
             return res.status(400).json({ error: 'Insufficient points' });
         }
         
-        // Deduct points
         user.points -= requiredPoints;
         await user.save();
         
-        // Create completed swap
+ 
         const swap = new Swap({
             itemId: item._id,
             itemOwnerEmail: item.userEmail,
@@ -408,7 +402,7 @@ app.post('/api/items/:id/redeem-points', requireAuth, async (req, res) => {
         
         await swap.save();
         
-        // Mark item as unavailable
+
         item.status = 'unavailable';
         await item.save();
         
@@ -442,15 +436,13 @@ app.put('/api/swaps/:id/accept', requireAuth, async (req, res) => {
         if (swap.status !== 'pending') {
             return res.status(400).json({ error: 'Swap is not pending' });
         }
-        
-        // Update swap status
+   
         swap.status = 'accepted';
         await swap.save();
-        
-        // Mark item as unavailable
+
         await Item.findByIdAndUpdate(swap.itemId._id, { status: 'unavailable' });
         
-        // Award points to item owner
+
         await User.findOneAndUpdate(
             { email: swap.itemOwnerEmail },
             { $inc: { points: 25 } }
@@ -489,7 +481,6 @@ app.put('/api/swaps/:id/decline', requireAuth, async (req, res) => {
     }
 });
 
-// Error handling middleware
 app.use((error, req, res, next) => {
     if (error instanceof multer.MulterError) {
         if (error.code === 'LIMIT_FILE_SIZE') {
