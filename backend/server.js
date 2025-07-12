@@ -406,7 +406,6 @@ app.post('/api/items/:id/redeem-points', requireAuth, async (req, res) => {
         item.status = 'unavailable';
         await item.save();
         
-        // Update session
         req.session.user.points = user.points;
         
         await swap.populate('itemId');
