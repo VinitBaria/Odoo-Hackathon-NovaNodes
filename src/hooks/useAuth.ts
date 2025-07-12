@@ -15,7 +15,6 @@ interface AuthContextType {
   isLoading: boolean;
 }
 
-// Mock data for demonstration
 const MOCK_USERS = [
   { id: '1', email: 'admin@rewear.com', password: 'admin123', points: 150, isAdmin: true },
   { id: '2', email: 'user@rewear.com', password: 'user123', points: 100, isAdmin: false },
@@ -26,7 +25,6 @@ export const useAuth = (): AuthContextType => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check for stored user session
     const storedUser = localStorage.getItem('rewear_user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -37,7 +35,6 @@ export const useAuth = (): AuthContextType => {
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     const foundUser = MOCK_USERS.find(u => u.email === email && u.password === password);
@@ -56,18 +53,14 @@ export const useAuth = (): AuthContextType => {
 
   const signup = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
-    
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Check if user already exists
     const existingUser = MOCK_USERS.find(u => u.email === email);
     if (existingUser) {
       setIsLoading(false);
       return false;
     }
     
-    // Create new user
     const newUser = {
       id: Date.now().toString(),
       email,
