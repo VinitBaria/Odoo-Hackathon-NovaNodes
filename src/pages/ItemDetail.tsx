@@ -104,7 +104,7 @@ export default function ItemDetail() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Image Gallery */}
+         
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
               <img
@@ -135,7 +135,6 @@ export default function ItemDetail() {
             )}
           </div>
 
-          {/* Item Details */}
           <div className="space-y-6">
             <div>
               <div className="flex items-start justify-between mb-4">
@@ -158,7 +157,6 @@ export default function ItemDetail() {
                 </div>
               </div>
 
-              {/* Owner Info */}
               <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
                 <Avatar>
                   <AvatarFallback>
@@ -177,7 +175,6 @@ export default function ItemDetail() {
 
             <Separator />
 
-            {/* Description */}
             <div>
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Description</h3>
               <p className="text-gray-600 leading-relaxed">{item.description}</p>
@@ -185,7 +182,6 @@ export default function ItemDetail() {
 
             <Separator />
 
-            {/* Item Specs */}
             <div>
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Item Details</h3>
               <div className="grid grid-cols-2 gap-4">
@@ -227,7 +223,7 @@ export default function ItemDetail() {
 
             <Separator />
 
-            {/* Action Buttons */}
+            
             <div className="space-y-4">
               {isOwner ? (
                 <div className="p-4 bg-blue-50 rounded-lg">
@@ -281,7 +277,7 @@ export default function ItemDetail() {
               )}
             </div>
 
-            {/* Sustainability Info */}
+         
             <div className="p-4 bg-green-50 rounded-lg">
               <h4 className="font-medium text-green-800 mb-2 flex items-center gap-2">
                 <Star className="h-4 w-4" />
@@ -294,7 +290,7 @@ export default function ItemDetail() {
           </div>
         </div>
 
-        {/* Related Items */}
+     
         <div className="mt-16">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">More items from this category</h2>
           <div className="text-center py-8 text-gray-500">
