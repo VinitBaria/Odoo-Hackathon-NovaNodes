@@ -1,9 +1,10 @@
-# Odoo-Hackathon-NovaNodes
-ReWear – Community Clothing Exchange 
-Develop ReWear, a web-based platform that enables users to exchange unused clothing 
-through direct swaps or a point-based redemption system. The goal is to promote sustainable 
-fashion and reduce textile waste by encouraging users to reuse wearable garments instead of 
-discarding them. 
+# ReWear – Community Clothing Exchange
 
-TEAM NAME : NovaNodes
-Email     : vinitbaria2006@gmail.com
+**Team Name:** NovaNodes  
+**Email:** vinitbaria2006@gmail.com  
+
+## Project Overview
+
+ReWear is a web-based platform that allows users to exchange unused clothing through direct swaps or a point-based system. 
+
+The aim is to promote sustainable fashion and reduce textile waste by encouraging people to reuse wearable clothes instead of throwing them away.
