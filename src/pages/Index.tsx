@@ -15,7 +15,7 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
+
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -56,7 +56,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -106,7 +106,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Items Section */}
+
       <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -161,7 +161,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+   
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
@@ -185,7 +185,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
