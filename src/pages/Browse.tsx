@@ -36,7 +36,7 @@ export default function Browse() {
       return matchesSearch && matchesCategory && matchesCondition && matchesSize;
     });
 
-    // Sort items
+    
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'newest':
