@@ -14,7 +14,7 @@ export default function Dashboard() {
   const { getUserItems } = useItems();
   
   if (!user) {
-    return null; // Handle redirect in route protection
+    return null; 
   }
   
   const userItems = getUserItems(user.email);
@@ -22,7 +22,7 @@ export default function Dashboard() {
   const approvedItems = userItems.filter(item => item.status === 'approved');
   const unavailableItems = userItems.filter(item => item.status === 'unavailable');
 
-  // Mock swap data for demonstration
+  
   const mockSwaps = [
     {
       id: '1',
@@ -46,13 +46,13 @@ export default function Dashboard() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8">
-        {/* Welcome Header */}
+      
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Welcome back, {user.email.split('@')[0]}!</h1>
           <p className="text-xl text-gray-600">Here's what's happening with your sustainable fashion journey</p>
         </div>
 
-        {/* Stats Cards */}
+       
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card className="bg-gradient-eco text-white">
             <CardHeader className="pb-2">
@@ -113,7 +113,7 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Quick Actions */}
+       
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <Link to="/add-item">
             <Card className="hover:shadow-eco transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
@@ -156,7 +156,7 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Main Content Tabs */}
+       
         <Tabs defaultValue="items" className="space-y-6">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="items">My Items</TabsTrigger>
@@ -164,7 +164,7 @@ export default function Dashboard() {
             <TabsTrigger value="activity">Activity</TabsTrigger>
           </TabsList>
 
-          {/* My Items Tab */}
+         
           <TabsContent value="items" className="space-y-6">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-gray-800">Your Items</h2>
@@ -224,7 +224,7 @@ export default function Dashboard() {
             )}
           </TabsContent>
 
-          {/* Swaps Tab */}
+         
           <TabsContent value="swaps" className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-800">Your Swaps</h2>
             
@@ -265,7 +265,7 @@ export default function Dashboard() {
             </div>
           </TabsContent>
 
-          {/* Activity Tab */}
+       
           <TabsContent value="activity" className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-800">Recent Activity</h2>
             
