@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details - ReWear</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-blue-50">
+    <nav class="bg-green-700 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/" class="text-3xl font-extrabold text-white tracking-tight">ReWear</a>
+            <div class="space-x-6">
+                <a href="/dashboard" class="text-white hover:text-green-200 transition">Dashboard</a>
+                <a href="/logout" class="text-white hover:text-green-200 transition">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6 fade-in"><%= item.title %></h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="<%= item.images[0] %>" alt="<%= item.title %>" class="w-full h-96 object-cover">
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <p class="text-gray-800 mb-2"><strong>Description:</strong> <%= item.description %></p>
+                <p class="text-gray-800 mb-2"><strong>Category:</strong> <%= item.category %></p>
+                <p class="text-gray-800 mb-2"><strong>Type:</strong> <%= item.type %></p>
+                <p class="text-gray-800 mb-2"><strong>Size:</strong> <%= item.size %></p>
+                <p class="text-gray-800 mb-2"><strong>Condition:</strong> <%= item.condition %></p>
+                <p class="text-gray-800 mb-2"><strong>Tags:</strong> <%= item.tags.join(', ') %></p>
+                <p class="text-gray-800 mb-2"><strong>Uploader:</strong> <%= item.userEmail %></p>
+                <p class="text-gray-800 mb-4"><strong>Status:</strong> <%= item.status %></p>
+                <% if (user && item.status === 'approved') { %>
+                    <div class="flex space-x-4">
+                        <form action="/item/<%= item.id %>/request-swap" method="POST">
+                            <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition transform hover:-translate-y-1 shadow-lg">Request Swap</button>
+                        </form>
+                        <form action="/item/<%= item.id %>/redeem-points" method="POST">
+                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition transform hover:-translate-y-1 shadow-lg">Redeem via Points (50)</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
