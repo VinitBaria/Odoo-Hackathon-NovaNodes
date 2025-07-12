@@ -4,7 +4,6 @@ import featuredItem1 from '@/assets/featured-item-1.jpg';
 import featuredItem2 from '@/assets/featured-item-2.jpg';
 import featuredItem3 from '@/assets/featured-item-3.jpg';
 
-// Mock data for demonstration
 const MOCK_ITEMS: Item[] = [
   {
     id: '1',
@@ -77,14 +76,13 @@ export const useItems = () => {
   const addItem = async (itemData: ItemFormData, userEmail: string): Promise<boolean> => {
     setIsLoading(true);
     
-    // Simulate API call
+  
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     try {
-      // Convert File objects to URLs for demo (in real app, upload to server)
+   
       const imageUrls = itemData.images.map((file, index) => {
-        // In a real app, you'd upload these files and get back URLs
-        // For demo, we'll use placeholder images
+       
         const placeholders = [featuredItem1, featuredItem2, featuredItem3];
         return placeholders[index % placeholders.length];
       });
@@ -99,7 +97,7 @@ export const useItems = () => {
         size: itemData.size,
         condition: itemData.condition,
         tags: itemData.tags,
-        status: 'pending', // Items need approval
+        status: 'pending', 
         images: imageUrls.length > 0 ? imageUrls : [featuredItem1],
         createdAt: new Date().toISOString(),
       };
