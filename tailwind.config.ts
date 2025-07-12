@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -61,7 +62,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'eco-green': 'hsl(var(--eco-green))',
+				'eco-light': 'hsl(var(--eco-light))',
+				'eco-mint': 'hsl(var(--eco-mint))',
+				'earth-brown': 'hsl(var(--earth-brown))',
+				'nature-blue': 'hsl(var(--nature-blue))'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-eco': 'var(--gradient-eco)',
+				'gradient-nature': 'var(--gradient-nature)'
+			},
+			boxShadow: {
+				'eco': 'var(--shadow-eco)',
+				'soft': 'var(--shadow-soft)'
+			},
+			transitionProperty: {
+				'smooth': 'var(--transition-smooth)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
