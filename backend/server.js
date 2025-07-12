@@ -38,7 +38,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/Rewear', {
       process.exit(1);
   });
 
-// Schemas
+
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -92,7 +92,7 @@ const User = mongoose.model('User', userSchema);
 const Item = mongoose.model('Item', itemSchema);
 const Swap = mongoose.model('Swap', swapSchema);
 
-// Multer configuration for file uploads
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/');
