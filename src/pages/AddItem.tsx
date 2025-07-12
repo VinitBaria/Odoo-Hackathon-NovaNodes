@@ -38,7 +38,7 @@ export default function AddItem() {
   const [imagePreview, setImagePreview] = useState<string[]>([]);
 
   if (!user) {
-    return null; // Route protection handles redirect
+    return null; 
   }
 
   const handleInputChange = (field: keyof ItemFormData, value: any) => {
@@ -82,7 +82,6 @@ export default function AddItem() {
       images: [...prev.images, ...files]
     }));
 
-    // Create preview URLs
     files.forEach(file => {
       const reader = new FileReader();
       reader.onload = (event) => {
