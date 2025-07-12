@@ -17,13 +17,13 @@ const Index = () => {
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        
+
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
@@ -32,7 +32,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
               Join the sustainable fashion movement. Swap, share, and reduce textile waste with our community-driven clothing exchange platform.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <Link to="/browse">
                 <Button variant="eco" size="xl" className="w-full sm:w-auto">
@@ -46,9 +46,10 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to={user ? "/add-item" : "/signup"}>
-                <Button variant="outline" size="xl" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-primary">
+                <Button variant="eco" size="xl" className="w-full sm:w-auto">
                   List an Item
                 </Button>
+
               </Link>
             </div>
           </div>
@@ -64,7 +65,7 @@ const Index = () => {
               Making sustainable fashion accessible, affordable, and fun for everyone
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center p-8 hover:shadow-eco transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="pt-6">
@@ -77,7 +78,7 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card className="text-center p-8 hover:shadow-eco transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="pt-6">
                 <div className="bg-gradient-eco rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
@@ -89,7 +90,7 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card className="text-center p-8 hover:shadow-eco transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="pt-6">
                 <div className="bg-gradient-eco rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
@@ -114,13 +115,13 @@ const Index = () => {
               Discover amazing pre-loved fashion pieces from our community
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredItems.map((item) => (
               <Card key={item.id} className="overflow-hidden hover:shadow-eco transition-all duration-300 transform hover:-translate-y-2">
                 <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={item.images[0]} 
+                  <img
+                    src={item.images[0]}
                     alt={item.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
@@ -148,7 +149,7 @@ const Index = () => {
               </Card>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Link to="/browse">
               <Button variant="eco" size="lg">
