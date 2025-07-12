@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to your Lovable project
 
 ## Project info
@@ -71,3 +72,15 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+=======
+# ReWear – Community Clothing Exchange
+
+**Team Name:** NovaNodes  
+**Email:** vinitbaria2006@gmail.com  
+
+## Project Overview
+
+ReWear is a web-based platform that allows users to exchange unused clothing through direct swaps or a point-based system. 
+
+The aim is to promote sustainable fashion and reduce textile waste by encouraging people to reuse wearable clothes instead of throwing them away.
+>>>>>>> 012c4c3444469fe1be60ebc87b69197030fc8baf
